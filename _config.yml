@@ -68,4 +68,6 @@ theme: anodyne
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:Manwholikespie/manwholikespie.github.io.git
+  branch: master
