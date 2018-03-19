@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="10/3/16Greetings, and welcome back to the FTL project after a long hiatus. It has come to my attention that there are quite a few things that could be">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Robert Dominguez">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Follow the Leader Part III"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Robertism"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Follow the Leader Part III - Robertism</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="Robertism">
+            <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/gordon.svg" class="dib h3" alt="Robertism">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/about" 
+                    title="About">
+                    About
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/contact" 
+                    title="Contact">
+                    Contact
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Follow the Leader Part III</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2017-05-08</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/web-scraping/">#web scraping</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h2 id="10-3-16"><a href="#10-3-16" class="headerlink" title="10/3/16"></a>10/3/16</h2><p>Greetings, and welcome back to the FTL project after a long hiatus. It has come to my attention that there are quite a few things that could be improved upon, mainly efficiency and logging, for the sake of knowing what the damn hell is going on at a given time.</p>
+<p>For starters— efficiency. Currently, we have bs4 going through tens of thousands of pages, grabbing user data one page at a time. Which would be great, if we were programmers in 18th century Kenya. We’re better than that. Therefore, gamescan.py will be overhauled using the beautiful aria2c engine, so that we can download our 16 beautiful pages at a time.</p>
+<p>Let’s begin.</p>
+<h2 id="10-4-16"><a href="#10-4-16" class="headerlink" title="10/4/16"></a>10/4/16</h2><p>Good news, my dear children. While I didn’t want to tackle the overhaul of gamescan, I figured it would be easy enough to change games.py. Here are the results:  </p>
+<p>Old games.py times:  </p>
+<ul>
+<li>17.94 real         1.36 user         0.07 sys  </li>
+<li>18.12 real         1.40 user         0.07 sys  </li>
+<li>15.48 real         1.35 user         0.07 sys  </li>
+</ul>
+<p>New games.py times:  </p>
+<ul>
+<li>7.52 real         1.19 user         0.10 sys  </li>
+<li>6.24 real         1.20 user         0.10 sys  </li>
+<li>8.93 real         1.20 user         0.11 sys  </li>
+</ul>
+<p>Pretty damn good improvement, imho.</p>
+<p>Now, I am going to change gamescan as CAREFULLY as I possibly can.<br>I figure the best way to attack this file would be to first examine carefully what it does. Remember, you haven’t touched this file in months.</p>
+<p>After collecting the list of games with getGames(), it sends the game name to gameScan().<br>Within gameScan(), there is the function pageCounter(), which visits the first page of the game, and extracts a certain paragraph tag that holds the amount of players. Because we know that statistically only the first 1/3rd have positive net worths, this number is divided by three and rounded accordingly.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">gameScan(gameName):</div><div class="line">	<span class="comment"># does a bunch of things, but I want to highlight the fact</span></div><div class="line">	<span class="comment"># that we are calling pageCounter here.</span></div><div class="line">	pageCounter(gameName)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">pageCounter</span><span class="params">(gameName)</span>:</span></div><div class="line">	<span class="keyword">while</span> x &lt; numberOfPeople:</div><div class="line">		list.append(<span class="string">'marketwatch.com/'</span>+gameName+<span class="string">'/ranking?'</span>+str(x))</div><div class="line">		<span class="comment"># Output: list of urls for the pages we need to scrape.</span></div></pre></td></tr></table></figure>
+<h3 id="Todo"><a href="#Todo" class="headerlink" title="Todo"></a>Todo</h3><ul>
+<li>Create a list of the urls for the first page of the games we need to scan, and append this to a list.</li>
+<li>Go Through this list and use aria2c to download the pages.</li>
+<li>Create a function that will go through the files for these pages, find the number of people within the game, and create a list of proper urls for the correct number of pages that need to be indexed. It is possible that I may be able to avoid one more url request by having pageScan accept multiple input types. Whenever I am parsing the page for the number of players, I might be able to send over the file if the number of people &lt; 10, as I wouldn’t need any pages past this. Most of these games aren’t any more than 2 pages, so that might cut time in half.</li>
+<li>Download these pages to be parsed by pageScan.  </li>
+<li>Delete pageCounter</li>
+<li>Rewrite pageScan to open files instead of urls.</li>
+<li>Make sure that we keep the url in there somehow, most likely as the title of the file. There are some regex functions that will need some of the data stored here.  </li>
+</ul>
+<p>Let’s begin, my dear children.</p>
+<h2 id="10-5-16"><a href="#10-5-16" class="headerlink" title="10/5/16"></a>10/5/16</h2><p>Alright, so I was able to complete the majority of the changes that I needed to, however pageScan is a <em>little</em> difficult. The main problem with this is just how much data it pulls from the url, which cannot exactly be saved in the file title.</p>
+<p>The easiest way to address this would be to keep the regular expression things the same and just rebuild the url when it first opens up the file for parsing. I figure the easiest way to format the file name would be to use commas as OS X allows this in their file system. I’m not too sure about windows, however, but idc.</p>
+<p>Well, the TODO list has been extended. I finished converting pageScan() to use downloaded pages, however I forgot about the playtime() function. Seems that this is slowing the program down quite a bit, which is strange as it shouldn’t be adding more… Nevermind. WE’RE DOWNLOADING 10,000 DAMN PAGES FOR THESE USERS. Time to make some changes.</p>
+<p>It looks like I am downloading the playtime of these users before even filtering them out by percent gains or net worth. So rather than downloading ~500 pages I am downloading 10k.<br>This is the time to sigh deeply. Time to delve deep into the documentation of pandas again so more optimizations can be made.</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/web-scraping/">#web scraping</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://avatars3.githubusercontent.com/u/6274589" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Robert Dominguez">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Greetings und achtung, my dear child. Welcome to Robertism.
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2017/05/08/Follow-the-Leader-Part-III/">Follow the Leader Part III</a>
+        </p>
+    
+        <p>
+            <a href="/2016/12/19/Follow-the-Leader-Part-V/">Follow the Leader Part V</a>
+        </p>
+    
+        <p>
+            <a href="/2016/11/22/Follow-the-Leader-Part-IV/">Follow the Leader Part IV</a>
+        </p>
+    
+        <p>
+            <a href="/2016/06/02/Follow-the-Leader-Part-II/">Follow the Leader Part II</a>
+        </p>
+    
+        <p>
+            <a href="/2016/03/29/Follow-the-Leader-Part-I/">Follow the Leader - Part I</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/thelordrobert" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/Manwholikespie" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:robert@robertism.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                @Manwholikespie. All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

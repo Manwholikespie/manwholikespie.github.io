@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="Follow the LeaderWelcome to the notes document for the project “follow-the-leader”. This document contains notes regarding brainstorming, observations">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Robert Dominguez">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Follow the Leader - Part I"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Robertism"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Follow the Leader - Part I - Robertism</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="Robertism">
+            <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/gordon.svg" class="dib h3" alt="Robertism">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/about" 
+                    title="About">
+                    About
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/contact" 
+                    title="Contact">
+                    Contact
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Follow the Leader - Part I</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2016-03-29</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/web-scraping/">#web scraping</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h1 id="Follow-the-Leader"><a href="#Follow-the-Leader" class="headerlink" title="Follow the Leader"></a>Follow the Leader</h1><p>Welcome to the notes document for the project “follow-the-leader”. This document contains notes regarding brainstorming, observations, and problem-solving.</p>
+<h2 id="Brainstorming"><a href="#Brainstorming" class="headerlink" title="Brainstorming"></a>Brainstorming</h2><h3 id="TRANSACTIONS"><a href="#TRANSACTIONS" class="headerlink" title="TRANSACTIONS"></a>TRANSACTIONS</h3><p><strong>HOLDINGS</strong>: I realized that currently, all of my holdings are stored in a dictionary that does not take into account multiple users. Granted, the program as a whole still doesn’t really account for multiple users. That’s okay, though. In order to combat this, I need to store transactions as being user-specific. This is the way I’m thinking of setting up the dictionaries: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Holdings =	&#123;</div><div class="line">	‘Dustin Lien <span class="number">234858</span>’ : &#123;</div><div class="line">			‘AAPL Buy’ : <span class="number">674</span></div><div class="line">			‘AAPL Short : <span class="number">536</span></div><div class="line">			‘HDP Buy’ : <span class="number">246</span></div><div class="line">			‘NDRO Buy’ : <span class="number">643</span></div><div class="line">			&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>RATIOS</strong>: Incorporating the multiple-users thing should be fairly simple when it comes to the ratios. It should be as simple as inputting a (1/50) in-front of the amount to buy– right?</p>
+<p><strong>LOSSES</strong>: Question: If a user drops out of the top 50, most likely due to their losses– or if their game ends– what would be the easiest and safest way to extract them from the “top 50” pool? I want to minimize losses, of course. My current planning:<br>Use gamescan() to find the top players of the day<br>Cross-reference the new list with that of yesterday<br>Based off of the differences, create a list of users to add and users to drop.<br>Users to drop:<br>Look at the holdings.log file, and create a function that sells all of the stock for a given user.</p>
+<h2 id="Hypothesis"><a href="#Hypothesis" class="headerlink" title="Hypothesis"></a>Hypothesis</h2><p>There are a few ways that this could go, insofar as returns. Let’s assume the best-case average scenario. Users trade an average of 8 (7.9) times per day. Removing the outliers, they get about 4.46% in returns each day, giving 133.8% a month. Now, assuming we go with the cheating outliers, the average raises to 64.78– giving 1,943.4% in 30 days.<br>Debugging</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/web-scraping/">#web scraping</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://avatars3.githubusercontent.com/u/6274589" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Robert Dominguez">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Greetings und achtung, my dear child. Welcome to Robertism.
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2017/10/09/Moesaic-Part-I/">Moesaic Part I</a>
+        </p>
+    
+        <p>
+            <a href="/2017/02/09/Queria-Part-I/">Queria Part I</a>
+        </p>
+    
+        <p>
+            <a href="/2016/12/19/Follow-the-Leader-Part-V/">Follow the Leader Part V</a>
+        </p>
+    
+        <p>
+            <a href="/2016/11/22/Follow-the-Leader-Part-IV/">Follow the Leader Part IV</a>
+        </p>
+    
+        <p>
+            <a href="/2016/10/05/Follow-the-Leader-Part-III/">Follow the Leader Part III</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/thelordrobert" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/Manwholikespie" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:robert@robertism.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                @Manwholikespie. All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

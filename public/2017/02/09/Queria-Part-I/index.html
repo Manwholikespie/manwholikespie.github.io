@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="IntroductionQueria originally started as nano, a question-answer AI. James and I worked on it over spring break in William’s cabin in the wee hours wh">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Robert Dominguez">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Queria Part I"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Robertism"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Queria Part I - Robertism</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="Robertism">
+            <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/gordon.svg" class="dib h3" alt="Robertism">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/about" 
+                    title="About">
+                    About
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/contact" 
+                    title="Contact">
+                    Contact
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Queria Part I</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2017-02-09</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/web-scraping/">#web scraping</a> <a class="fw3 ph1 dib" href="/tags/natural-language-processing/">#natural language processing</a> <a class="fw3 ph1 dib" href="/tags/fuzzy-set-theory/">#fuzzy set theory</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Queria originally started as nano, a question-answer AI. James and I worked on it over spring break in William’s cabin in the wee hours when we got bored of eating quesadillas and watching anime. This was also the project that sparked the creation of Inculi.</p>
+<p>The concept was pretty simple: ask the bot some questions, and have it find you the answers to those questions. Being able to actually make this happen was the hard part. We didn’t really have access to a giant conversational database, nor the means to train any sufficiently powerful computer on this dataset. So, we figured a more feasible target would be answering questions on our homework.</p>
+<p>How do we do that? Through google. More specifically, wikipedia and quizlet. More technically– with fuzzy string matching algorithms and some neat set theory functions like the <a href="https://en.wikipedia.org/wiki/Jaccard_index" target="_blank" rel="noopener">Jaccard Index</a> and <a href="https://en.wikipedia.org/wiki/Hamming_distance" target="_blank" rel="noopener">Hamming distance</a>.</p>
+<p>For multiple choice questions, you input the question with a list of possible answers. The program then searches the question on google, and takes the top 20 page results (excluding pdfs, powerpoints, etc.). In those 20 pages, it tokenizes the core text into individual sentences, and then performs a token set ratio comparing the question to each sentence. If a paragraph has enough similiar sentences, it saves it. Later, once all 20 pages have been parsed, it counts up how many times each of your given possible-answers show up, and assigns points to each possibility based on that count.</p>
+<p>For the free response option, it basically does the same sort of search, but only uses the top three results from quizlet. Then, instead of performing a token set ratio on the sentences of the page, it performs it on the cards to find the relevant cards. No possible answers are needed.</p>
+<p>Now that you are all caught up, here are some of my latest thoughts regarding using wikipedia summaries to aid the quizlet data in free response questions…</p>
+<h2 id="Article-Reading-Function"><a href="#Article-Reading-Function" class="headerlink" title="Article Reading Function"></a>Article Reading Function</h2><p>Sadly, the ‘easy’ part is over. Though, I am glad that I shall now be moving on to something more challenging and important in the grand scheme of this project– assuming it works. Anyways, this is the plan for what I am going to do next:</p>
+<p>When researching the answer to a given question, there is of course the task of finding a relevant resource with the information you are looking for. I believe the google search module does a good job of leaving this task to the search giant. Now, the next part is of course to actually read the article and pull the relevant information from the text into your brain. In other words, I get to play around with string matching and processing.</p>
+<p>I figure if I can pull apart my question into its basic words, and then possibly feed those words to the thesaurus package I created earlier, I can then feed that data into the fuzzy string matching module that I used in the quizlet portion of queria.</p>
+<p><strong>Let’s Begin.</strong><br>I was able to get the data from the pages by using the wikipedia module:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pageText = wikipedia.WikipediaPage(topic).content</div></pre></td></tr></table></figure>
+<p>Then, I broke the text into single sentences with nltk’s sentence tokenizer, storing them into a list:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pageSentences = nltk.sent_tokenize(pageText)</div></pre></td></tr></table></figure>
+<p>This ended up being fairly straightforward, allowing me to use fuzzywuzzy’s token set ratio to single-out sentences that have a ratio above 80:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> int(fuzz.token_set_ratio(inputQuestion.lower(), item.lower())) &gt; <span class="number">80</span>:</div><div class="line">	relevantSents.append(item)</div></pre></td></tr></table></figure>
+<p>Experimentally, the lowest-scoring sentence I have found that had relevant data received a score of 84.</p>
+<p>TODO…<br>Currently, the data is somewhat out of order. Firstly, the page text that the wikipedia module returns is filled with chapter markers denoted by:  </p>
+<blockquote>
+<p>   === HISTORY ===<br>       Blah blah George Washington. Much war.<br>   === DEATH ====<br>       He’s dead. :.(  </p>
+</blockquote>
+<p>Which can be nice for the purpose of organization and such, however when I tokenize it, it’s still left in there. I figure before I tokenize it, I can go through the unicode object with some regex to filter it out. We’ll see… regex can be difficult sometimes.</p>
+<p>As for what I want to add:</p>
+<ul>
+<li><em>DONE</em> I want to store the ‘relevant’ sentences alongside their fuzzy score so that I can construct the paragraph with the most helpful information at the top.</li>
+<li>I need to figure out what the “mult” files do. I believe they had something to do with importing questions, which reminds me that I need to finish that as well (or at least perfect it).</li>
+<li>I want to possibly add a webgui to view the answers to my questions. At the very least, have it construct an html file for me to view the answers in, as it is really difficult to read off of this terminal sometimes.</li>
+<li>Experiment with googling questions EXACTLY as they are written (with quotation marks) and prioritizing those pages in searches.</li>
+</ul>
+<h2 id="2-9-17"><a href="#2-9-17" class="headerlink" title="2/9/17"></a>2/9/17</h2><p>Greetings und achtung, my dear children, and welcome back to another rendition of queria.<br>I am starting to think again about putting these subpar(-ly?) organized functions into their respective files, but I am not quite sure yet, as last time that didn’t work out so well.</p>
+<p>I want to work on the answerFree() function a bit, mainly incorporating these two technologies:  </p>
+<ul>
+<li><a href="https://github.com/miso-belica/sumy" target="_blank" rel="noopener">sumy</a>  </li>
+<li><a href="https://github.com/grangier/python-goose" target="_blank" rel="noopener">python-goose</a>  </li>
+</ul>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/web-scraping/">#web scraping</a> <a class="fw3 ph1 dib" href="/tags/natural-language-processing/">#natural language processing</a> <a class="fw3 ph1 dib" href="/tags/fuzzy-set-theory/">#fuzzy set theory</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://avatars3.githubusercontent.com/u/6274589" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Robert Dominguez">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Greetings und achtung, my dear child. Welcome to Robertism.
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2017/10/09/Moesaic-Part-I/">Moesaic Part I</a>
+        </p>
+    
+        <p>
+            <a href="/2017/02/09/Queria-Part-I/">Queria Part I</a>
+        </p>
+    
+        <p>
+            <a href="/2016/12/19/Follow-the-Leader-Part-V/">Follow the Leader Part V</a>
+        </p>
+    
+        <p>
+            <a href="/2016/11/22/Follow-the-Leader-Part-IV/">Follow the Leader Part IV</a>
+        </p>
+    
+        <p>
+            <a href="/2016/10/05/Follow-the-Leader-Part-III/">Follow the Leader Part III</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/thelordrobert" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/Manwholikespie" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:robert@robertism.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                @Manwholikespie. All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>

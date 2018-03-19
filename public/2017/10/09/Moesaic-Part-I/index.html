@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="IntroductionAlmost a year ago, I created a 116sq ft mosaic of the Taj Mahal out of anime girls. It was formed in pieces: 15x12 pages, where each page ">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Robert Dominguez">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Moesaic Part I"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Robertism"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>Moesaic Part I - Robertism</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light">
+    
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="db dtc-l v-mid link dim w-100 w-25-l tc tl-l mb2 mb0-l white" href="/" title="Robertism">
+            <img src="https://s3-us-west-2.amazonaws.com/svgporn.com/logos/gordon.svg" class="dib h3" alt="Robertism">
+        </a>
+        <div class="db dtc-l v-mid w-100 w-75-l tc tr-l">
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/archives" 
+                    title="Archives">
+                    Archives
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/about" 
+                    title="About">
+                    About
+                </a>
+            
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/contact" 
+                    title="Contact">
+                    Contact
+                </a>
+            
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center vh-40 dt">
+        <div class="dtc v-mid white">
+            <h1 class="f1-l f2-m tc tc-m tl-ns">Moesaic Part I</h1>
+            <p class="f4 fw3 pab-100px tc tc-m tl-ns">2017-10-09</p>
+        </div>
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/numpy/">#numpy</a> <a class="fw3 ph1 dib" href="/tags/nearest-neighbors/">#nearest neighbors</a> <a class="fw3 ph1 dib" href="/tags/scikit-learn/">#scikit-learn</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>Almost a year ago, I created a 116sq ft mosaic of the Taj Mahal out of anime girls. It was formed in pieces: 15x12 pages, where each page had 14x12 tiles. In other words, I had to match 30240 tiles to the best anime girl out of 2498 other ones (giving us about 12.11 occurrences per girl).</p>
+<p>Sadly, when I built it, I only programmed the part that downloaded the images. I let someone else’s program do the mosaic building part for me. While it turned out great, I missed out on the truly fun part of the puzzle.</p>
+<p>You see, mosaics are actually a quite complex array of optimization problems. Given an large input matrix (the image), and large database of features (your image database), the following problems must be solved to create an optimal output image:</p>
+<ol>
+<li>Find the closest image in your database to match a submatrix (tile) of your input matrix. You want the output image to resemble your input image.</li>
+<li>Minimize the number of repeats for a given classification. If half of your output photo is made of the same photo, it will ruin the aesthetic.</li>
+<li>If repeats must be made, maximize the distance at which they occur from one another. Multiple repeats are bad, but if they are far enough away from each other, they don’t look as bad.</li>
+</ol>
+<p>Thus, with these challenges in mind, I have taken it upon myself to find the best way to create a mosaic. One that looks good, isn’t too computationally expensive to create, and employs the full extent of its resources (our image database).</p>
+<p>I figured I’d do this in 3 parts, and write about the journey of completing each part. Part I will be a simplistic approach to solving the problem–– primarily focused on completing problem 1 without worrying too much about 2 and 3.</p>
+<p>Part II would be to solve 2 and 3 using more complex (yet still classical) statistical methods–– I am currently considering genetic algorithms, but I may find better… I might also improve upon 1 by adding texture dimensions through grayscale.</p>
+<p>Finally, Part III would be to attempt to optimize all 3 tasks at once with a neural network. I figured II would be a nice stepping point towards this, as I would have to create loss functions for the genetic algorithm anyway.</p>
+<p>Before I get into how I did Part I, a little background…</p>
+<h1 id="History"><a href="#History" class="headerlink" title="History"></a>History</h1><p>In December of 2016, instead of studying for finals, I started an art project. My roommate and I had surplus printing credits, and we thought it would be neat to print out something big and put it on our ceiling. After brainstorming for a while, we decided we wanted to make a mosaic, printed out on 180 different sheets of printer paper. We weren’t sure what we wanted the picture to be, but we thought it would be funny to make it out of thousands of photos of anime girls.  </p>
+<p>The first 13 iterations were Whoopi Goldberg peering over a mountain. Here are some of them.  </p>
+<p><img src="https://imgur.com/ivwBDQY.jpg" alt="Whoopi1"><br><img src="https://imgur.com/3PDIAte.jpg" alt="Whoopi2"><br><img src="https://imgur.com/zE46EpP.jpg" alt="Whoopi3"><br>This one is different in that it focuses on matching texture, and then re-colors the image to match.</p>
+<p>After testing out photos of Whoopi Goldberg, I decided that a better subject would be the Taj Mahal. It had to be tweaked though, as it didn’t offer a large enough array of colors.</p>
+<p><img src="https://imgur.com/03udMbt.jpg" alt="Taj1"><br><img src="https://imgur.com/9SC4xxL.jpg" alt="Taj2"><br><img src="https://imgur.com/FzHCXQ3.jpg" alt="Taj3"><br><img src="https://imgur.com/vlKGPFt.jpg" alt="Taj4">  </p>
+<h2 id="Scraping"><a href="#Scraping" class="headerlink" title="Scraping"></a>Scraping</h2><p>The scraping part of this isn’t all that neat, so I’ll just leave you <a href="https://gist.github.com/Manwholikespie/695efa6ab7a156f4b4493dca9557c4d8" target="_blank" rel="noopener">my code</a> if you want to get the images yourself. I recommend using <a href="https://aria2.github.io" target="_blank" rel="noopener">aria2</a> to download the photos in parallel.  </p>
+<h2 id="Early-Prototype"><a href="#Early-Prototype" class="headerlink" title="Early Prototype"></a>Early Prototype</h2><p><img src="https://imgur.com/736BBtt.jpg" alt=""><br>One of my first attempts at doing this, was to create a NearestNeighbors classifier on the average RGB value between tiles and database images. In this plot, the blue points are DB images, and orange are tiles. Needless to say (<em>yet I shall</em>), this was not affected by the <a href="https://en.wikipedia.org/wiki/Curse_of_dimensionality" target="_blank" rel="noopener">curse of dimensionality</a>, but rather the lack of it. I needed more dimensionality to differentiate the gradual transition of color and texture across tiles.</p>
+<h2 id="Assembly"><a href="#Assembly" class="headerlink" title="Assembly"></a>Assembly</h2><p>We first want to load all of the images we downloaded. Here, I put them in a folder named p2, where each file is named 1.jpg, 2.jpg, and so on all the way to 1312.jpg. As open each one, I resize it to a 5x5 image, and store its array as a tuple inside my images list. Once we have all of the images, sort their placement in the list by filename, and store them in a pandas DataFrame.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">from</span> scipy.misc <span class="keyword">import</span> toimage, imresize, imsave</div><div class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line">images = []</div><div class="line"><span class="keyword">for</span> i <span class="keyword">in</span> os.listdir(<span class="string">'p2'</span>):</div><div class="line">    name = i.split(<span class="string">'.'</span>)</div><div class="line">    fileName = <span class="string">'%04d.%s'</span> % (int(name[<span class="number">0</span>]),name[<span class="number">1</span>])</div><div class="line">    tile_matrix = imresize(np.array(Image.open(<span class="string">'p2/'</span>+i)), (<span class="number">5</span>,<span class="number">5</span>))</div><div class="line">    </div><div class="line">    images.append((fileName,tile_matrix))</div><div class="line"></div><div class="line">images = sorted(images, key=<span class="keyword">lambda</span> x: x[<span class="number">0</span>])</div><div class="line">df = pd.DataFrame(images, columns=[<span class="string">'name'</span>,<span class="string">'vals'</span>])</div></pre></td></tr></table></figure>
+<p>Now, we will take our list of (5,5,3) shaped color matrixes of the form:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">array([[[<span class="number">217</span>, <span class="number">204</span>, <span class="number">197</span>],</div><div class="line">        [<span class="number">225</span>, <span class="number">220</span>, <span class="number">199</span>],</div><div class="line">        [<span class="number">243</span>, <span class="number">245</span>, <span class="number">221</span>],</div><div class="line">        [<span class="number">244</span>, <span class="number">246</span>, <span class="number">225</span>],</div><div class="line">        [<span class="number">252</span>, <span class="number">252</span>, <span class="number">248</span>]],</div><div class="line"></div><div class="line">       [[<span class="number">172</span>, <span class="number">166</span>, <span class="number">155</span>],</div><div class="line">        [<span class="number">214</span>, <span class="number">213</span>, <span class="number">199</span>],</div><div class="line">        [<span class="number">240</span>, <span class="number">242</span>, <span class="number">225</span>],</div><div class="line">        [<span class="number">247</span>, <span class="number">247</span>, <span class="number">237</span>],</div><div class="line">        [<span class="number">252</span>, <span class="number">252</span>, <span class="number">248</span>]],</div><div class="line"></div><div class="line">       [[<span class="number">176</span>, <span class="number">172</span>, <span class="number">158</span>],</div><div class="line">        [<span class="number">223</span>, <span class="number">220</span>, <span class="number">212</span>],</div><div class="line">        [<span class="number">227</span>, <span class="number">224</span>, <span class="number">216</span>],</div><div class="line">        [<span class="number">234</span>, <span class="number">228</span>, <span class="number">226</span>],</div><div class="line">        [<span class="number">238</span>, <span class="number">231</span>, <span class="number">230</span>]],</div><div class="line"></div><div class="line">       [[<span class="number">234</span>, <span class="number">231</span>, <span class="number">218</span>],</div><div class="line">        [<span class="number">224</span>, <span class="number">221</span>, <span class="number">212</span>],</div><div class="line">        [<span class="number">189</span>, <span class="number">184</span>, <span class="number">174</span>],</div><div class="line">        [<span class="number">209</span>, <span class="number">194</span>, <span class="number">189</span>],</div><div class="line">        [<span class="number">212</span>, <span class="number">196</span>, <span class="number">190</span>]],</div><div class="line"></div><div class="line">       [[<span class="number">243</span>, <span class="number">240</span>, <span class="number">232</span>],</div><div class="line">        [<span class="number">240</span>, <span class="number">236</span>, <span class="number">228</span>],</div><div class="line">        [<span class="number">234</span>, <span class="number">231</span>, <span class="number">222</span>],</div><div class="line">        [<span class="number">219</span>, <span class="number">206</span>, <span class="number">200</span>],</div><div class="line">        [<span class="number">215</span>, <span class="number">200</span>, <span class="number">195</span>]]], dtype=uint8)</div></pre></td></tr></table></figure>
+<p>and flatten each of them down to a (75,) shaped matrix of the form:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">array([<span class="number">217</span>, <span class="number">204</span>, <span class="number">197</span>, <span class="number">225</span>, <span class="number">220</span>, <span class="number">199</span>, <span class="number">243</span>, <span class="number">245</span>, <span class="number">221</span>, <span class="number">244</span>, <span class="number">246</span>, <span class="number">225</span>, <span class="number">252</span>,</div><div class="line">       <span class="number">252</span>, <span class="number">248</span>, <span class="number">172</span>, <span class="number">166</span>, <span class="number">155</span>, <span class="number">214</span>, <span class="number">213</span>, <span class="number">199</span>, <span class="number">240</span>, <span class="number">242</span>, <span class="number">225</span>, <span class="number">247</span>, <span class="number">247</span>,</div><div class="line">       <span class="number">237</span>, <span class="number">252</span>, <span class="number">252</span>, <span class="number">248</span>, <span class="number">176</span>, <span class="number">172</span>, <span class="number">158</span>, <span class="number">223</span>, <span class="number">220</span>, <span class="number">212</span>, <span class="number">227</span>, <span class="number">224</span>, <span class="number">216</span>,</div><div class="line">       <span class="number">234</span>, <span class="number">228</span>, <span class="number">226</span>, <span class="number">238</span>, <span class="number">231</span>, <span class="number">230</span>, <span class="number">234</span>, <span class="number">231</span>, <span class="number">218</span>, <span class="number">224</span>, <span class="number">221</span>, <span class="number">212</span>, <span class="number">189</span>,</div><div class="line">       <span class="number">184</span>, <span class="number">174</span>, <span class="number">209</span>, <span class="number">194</span>, <span class="number">189</span>, <span class="number">212</span>, <span class="number">196</span>, <span class="number">190</span>, <span class="number">243</span>, <span class="number">240</span>, <span class="number">232</span>, <span class="number">240</span>, <span class="number">236</span>,</div><div class="line">       <span class="number">228</span>, <span class="number">234</span>, <span class="number">231</span>, <span class="number">222</span>, <span class="number">219</span>, <span class="number">206</span>, <span class="number">200</span>, <span class="number">215</span>, <span class="number">200</span>, <span class="number">195</span>], dtype=uint8)</div></pre></td></tr></table></figure>
+<p>To do this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">X = map(<span class="keyword">lambda</span> x: x.flatten(), df[<span class="string">'vals'</span>])</div></pre></td></tr></table></figure>
+<p>and that’s that.</p>
+<h2 id="Model-Fitting"><a href="#Model-Fitting" class="headerlink" title="Model - Fitting"></a>Model - Fitting</h2><p><img src="https://imgur.com/9vp1Vf1.jpg" alt=""><br>(<em>Example, credit to <a href="https://twitter.com/fulhack" target="_blank" rel="noopener">Erik Bernhardsson</a></em>)</p>
+<p>From here, the classification is fairly simple. We have 1312 different data points in 75-dimensional space, so we merely need to fit them to our NearestNeighbors model. We have specified k to be 5 in this, so for each tile in our input photo, we will be getting 5 possibilities as to potential matches.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> NearestNeighbors</div><div class="line">nbrs = NearestNeighbors(n_neighbors=<span class="number">5</span>, algorithm=<span class="string">'ball_tree'</span>).fit(X)</div></pre></td></tr></table></figure>
+<p>Before I load the input image, I want to be able to split it into 5x5 tiles that I can match to my database images. So, for images that are 500x313 for example, the 500 is divisible by 5 so it can stay, however I will need to resize the 313 to be 315:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">resizeFive</span><span class="params">(imgArray)</span>:</span></div><div class="line">    y = len(imgArray)</div><div class="line">    x = len(imgArray[<span class="number">0</span>])</div><div class="line">    </div><div class="line">    f = <span class="keyword">lambda</span> z: z <span class="keyword">if</span> (z%<span class="number">5</span> == <span class="number">0</span>) <span class="keyword">else</span> <span class="number">5</span>*(z/<span class="number">5</span> + <span class="number">1</span>)</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> imresize(imgArray, (f(y),f(x)))</div></pre></td></tr></table></figure>
+<p>Now we can load and resize the photo.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">base = np.array(Image.open(<span class="string">'taj.jpg'</span>))[:,:,:<span class="number">3</span>]</div><div class="line">base = resizeFive(base)</div></pre></td></tr></table></figure>
+<p>In order for me to classify each tile, they need to be of the same 75-dimensional form that my DB images are in:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">flattenBase</span><span class="params">(imgArray)</span>:</span></div><div class="line">    tiles = []</div><div class="line">    y = len(imgArray)</div><div class="line">    x = len(imgArray[<span class="number">0</span>])</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,y,<span class="number">5</span>):</div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>,x,<span class="number">5</span>):</div><div class="line">            tiles.append(imgArray[i:i+<span class="number">5</span>,j:j+<span class="number">5</span>].flatten())</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> tiles</div></pre></td></tr></table></figure>
+<h2 id="Model-Classifying"><a href="#Model-Classifying" class="headerlink" title="Model - Classifying"></a>Model - Classifying</h2><p><img src="https://imgur.com/o6boMC7.jpg" alt=""><br>(<em>Example, credit to <a href="https://twitter.com/fulhack" target="_blank" rel="noopener">Erik Bernhardsson</a></em>)</p>
+<p>Now, I can classify my tile features. As each tile is classified, 5 potential candidates are given, along with how far away each candidate it from matching it exactly. I can take this information, and form a weighted distribution to pick an image from.</p>
+<p>Say I have 5 candidates that are each equally far away from my point. Then, they will each have <code>1.0/5 = 0.2</code> chance of being picked. As I generate a random float from 0-1, I can say 0-0.2 results in candidate 1, 0.2-0.4 results in candidate 2, and so on.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">flat_base = flattenBase(base)</div><div class="line">distances, indices = nbrs.kneighbors(flat_base)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(imgNum)</span>:</span></div><div class="line">    i = indices[imgNum][<span class="number">1</span>:]</div><div class="line">    d = distances[imgNum][<span class="number">1</span>:]</div><div class="line"></div><div class="line">    tot_d = d.sum()</div><div class="line">    cur_sum = <span class="number">0</span></div><div class="line">    choice = np.random.random()</div><div class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, len(d)):</div><div class="line">        cur_sum += (d[x] / tot_d)</div><div class="line">        <span class="keyword">if</span> choice &lt;= cur_sum:</div><div class="line">            <span class="keyword">return</span> i[x]</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> i[x]</div><div class="line"></div><div class="line"><span class="comment"># make our predictions</span></div><div class="line">p_tiles = []</div><div class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>,len(indices)):</div><div class="line">    p_tiles.append(predict(x))</div></pre></td></tr></table></figure>
+<p>Now that we have a list of what we want to change each tile to, we can re-assemble the photo with our new tiles in place.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">makeImage</span><span class="params">(origImg,imgDB,tileLabels)</span>:</span></div><div class="line">    yDim = len(origImg)/<span class="number">5</span></div><div class="line">    xDim = len(origImg[<span class="number">0</span>])/<span class="number">5</span></div><div class="line">    </div><div class="line">    tiles = [imgDB[i] <span class="keyword">for</span> i <span class="keyword">in</span> tileLabels]</div><div class="line">    columns = []</div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,len(tiles),xDim):</div><div class="line">        columns.append(np.concatenate(tiles[i:i+xDim], axis=<span class="number">1</span>))</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> np.concatenate(columns, axis=<span class="number">0</span>)</div><div class="line"></div><div class="line">finalImg = makeImage(base,df.vals,p_tiles)</div><div class="line">imsave(<span class="string">'basefinal.jpg'</span>, finalImg)</div></pre></td></tr></table></figure>
+<p>Thus, our input photo:</p>
+<p><img src="https://imgur.com/0jDzXWL.jpg" alt=""></p>
+<p>becomes this:</p>
+<p><img src="https://imgur.com/oA5KRon.jpg" alt=""></p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>As you can see, there are a number of repeats, and they are quite close to each other. Out of the 1312 photos I started with, I believe only around 600 of them were used in the final image. So, some work is definitely to be done in Part II for optimizing problems 2 and 3.</p>
+<p>With that being said, I’m quite proud of how it turned out. I hadn’t done much with matrices before this, and I’m eager to learn more of NumPY’s useful features.</p>
+<p>Thanks for reading. I’ll see you in Part II.</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/python/">#python</a> <a class="fw3 ph1 dib" href="/tags/numpy/">#numpy</a> <a class="fw3 ph1 dib" href="/tags/nearest-neighbors/">#nearest neighbors</a> <a class="fw3 ph1 dib" href="/tags/scikit-learn/">#scikit-learn</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="https://avatars3.githubusercontent.com/u/6274589" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Robert Dominguez">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Greetings und achtung, my dear child. Welcome to Robertism.
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2017/10/09/Moesaic-Part-I/">Moesaic Part I</a>
+        </p>
+    
+        <p>
+            <a href="/2017/02/09/Queria-Part-I/">Queria Part I</a>
+        </p>
+    
+        <p>
+            <a href="/2016/12/19/Follow-the-Leader-Part-V/">Follow the Leader Part V</a>
+        </p>
+    
+        <p>
+            <a href="/2016/11/22/Follow-the-Leader-Part-IV/">Follow the Leader Part IV</a>
+        </p>
+    
+        <p>
+            <a href="/2016/10/05/Follow-the-Leader-Part-III/">Follow the Leader Part III</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/thelordrobert" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/Manwholikespie" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:robert@robertism.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                @Manwholikespie. All right reserved
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+
+</html>
